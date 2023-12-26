@@ -1,20 +1,7 @@
-import CategorySectionComponent from "./components/category-item/category-item.component";
-import categories from "./constants/constants";
-
-import "./App.styles.scss";
+import Directory from "./components/directory/directory.component";
 
 const App = () => {
-  return (
-    <div className="categories-container">
-      {categories.map((category) => (
-        <CategorySectionComponent
-          title={category.title}
-          imageUrl={category.imageUrl}
-          key={category.id}
-        />
-      ))}
-    </div>
-  );
+  return Directory();
 };
 
 export default App;

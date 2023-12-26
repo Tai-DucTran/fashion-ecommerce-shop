@@ -1,5 +1,7 @@
-const CategoryItemComponent = ({ title, imageUrl }) => {
-  console.log(imageUrl);
+import "./category-item.styles.scss";
+
+const CategoryItemComponent = ({ category }) => {
+  const { title, imageUrl } = category;
   return (
     <div className="category-container">
       <div
