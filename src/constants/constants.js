@@ -1,23 +1,28 @@
 const categories = [
   {
     id: 1,
-    title: "HATS",
+    title: "hats",
+    imageUrl: "https://i.ibb.co/cvpntL1/hats.png",
   },
   {
     id: 2,
-    title: "JACKETS",
+    title: "jackets",
+    imageUrl: "https://i.ibb.co/px2tCc3/jackets.png",
   },
   {
     id: 3,
-    title: "SNEAKERS",
+    title: "sneakers",
+    imageUrl: "https://i.ibb.co/0jqHpnp/sneakers.png",
   },
   {
     id: 4,
-    title: "WOMEN'S",
+    title: "womens",
+    imageUrl: "https://i.ibb.co/GCCdy8t/womens.png",
   },
   {
     id: 5,
-    title: "MEN'S",
+    title: "mens",
+    imageUrl: "https://i.ibb.co/R70vBrQ/men.png",
   },
 ];
 
