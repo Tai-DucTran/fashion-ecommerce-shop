@@ -1,5 +1,5 @@
 const SignIn = () => {
-  return <h1>I am the shop page</h1>;
+  return <h1>Sign In Page</h1>;
 };
 
 export default SignIn;
