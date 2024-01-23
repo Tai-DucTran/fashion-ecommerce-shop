@@ -8,9 +8,9 @@ import {
   createUserDocFromAuth,
 } from '../../utils/firebase/firebase.utils';
 
-import SiginUpForm from '../sign-up-form/sign-up-form.components';
+import SignUpForm from '../sign-up-form/sign-up-form.components';
 
-const SignIn = () => {
+const SignInSignUp = () => {
   useEffect(() => {
     const verifyRedirectResult = async () => {
       const response = await getRedirectResult(auth);
@@ -33,9 +33,9 @@ const SignIn = () => {
       <button onClick={signInWithGoogleRedirect}>
         Sign in with Google Redirect
       </button>
-      <SiginUpForm />
+      <SignUpForm />
     </div>
   );
 };
 
-export default SignIn;
+export default SignInSignUp;

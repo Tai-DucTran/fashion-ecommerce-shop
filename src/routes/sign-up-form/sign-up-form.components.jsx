@@ -17,7 +17,7 @@ const defaultForm = {
   confirmPassword: '',
 };
 
-const SiginUpForm = () => {
+const SignUpForm = () => {
   const [formFields, setFormFields] = useState(defaultForm);
   const { displayName, email, password, confirmPassword } = formFields;
 
@@ -101,10 +101,10 @@ const SiginUpForm = () => {
           value={confirmPassword}
         />
 
-        <Button type="submit" chidren={' Sign Up'}></Button>
+        <Button chidren={' Sign Up'}></Button>
       </form>
     </div>
   );
 };
 
-export default SiginUpForm;
+export default SignUpForm;
