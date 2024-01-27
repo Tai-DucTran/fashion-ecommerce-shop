@@ -1,8 +1,8 @@
 import { Routes, Route } from 'react-router-dom';
 
-import HomePage from './routes/home-page/home-page.component';
+import Home from './routes/home/home.component';
 import Shop from './routes/shop/shop.component';
-import AuthenticationPage from './routes/authentication-page/authentication-page.component';
+import Authentication from './routes/authentication/authentication.component';
 import Contact from './routes/contact/contact.component';
 import NavigationBar from './routes/navigation-bar/navigation-bar.component';
 
@@ -10,10 +10,10 @@ const App = () => {
   return (
     <Routes>
       <Route path="/" element={<NavigationBar />}>
-        <Route index element={<HomePage />} />
+        <Route index element={<Home />} />
         <Route path="shop" element={<Shop />} />
         <Route path="contact" element={<Contact />} />
-        <Route path="signin" element={<AuthenticationPage />} />
+        <Route path="signin" element={<Authentication />} />
       </Route>
     </Routes>
   );
