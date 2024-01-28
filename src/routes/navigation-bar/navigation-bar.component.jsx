@@ -1,8 +1,8 @@
-import { Fragment } from "react";
-import { Outlet, Link } from "react-router-dom";
+import { Fragment } from 'react';
+import { Outlet, Link } from 'react-router-dom';
 
-import { ReactComponent as CrwnLogo } from "../../assets/crown.svg";
-import "./navigation-bar.styles.scss";
+import { ReactComponent as CrwnLogo } from '../../assets/crown.svg';
+import './navigation-bar.styles.scss';
 
 const NavigationBar = () => {
   return (
@@ -18,7 +18,7 @@ const NavigationBar = () => {
           <Link className="nav-link" to="/contact">
             CONTACT
           </Link>
-          <Link className="nav-link" to="/signin">
+          <Link className="nav-link" to="/auth">
             SIGN IN
           </Link>
         </div>

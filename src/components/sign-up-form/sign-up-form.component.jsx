@@ -1,13 +1,11 @@
 import { useState } from 'react';
-
-import FormInput from '../../../components/form-input/form-input.component';
-import Button from '../../../components/button/button.component';
-
 import {
   createAuthUserWithEmailAndPassword,
   createUserDocFromAuth,
-} from '../../../utils/firebase/firebase.utils';
+} from '../../utils/firebase/firebase.utils';
 
+import Button from '../button/button.component';
+import FormInput from '../form-input/form-input.component';
 import './sign-up-form.style.scss';
 
 const defaultForm = {
@@ -101,7 +99,7 @@ const SignUpForm = () => {
           value={confirmPassword}
         />
 
-        <Button chidren={' Sign Up'}></Button>
+        <Button chidren={'Sign Up'}></Button>
       </form>
     </div>
   );
