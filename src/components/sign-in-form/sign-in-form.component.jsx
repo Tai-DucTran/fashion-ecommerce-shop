@@ -46,8 +46,18 @@ const SignInForm = () => {
       );
       console.log('login response', response);
       resetFormFields();
-    } catch (e) {
-      console.log('Something went wrong', e);
+    } catch (error) {
+      switch (error.code) {
+        case 'auth/wrong-password':
+          alert('incorrect password for email');
+          break;
+        case 'auth/user-not-found':
+          alert('no user associated with this email');
+          break;
+        default:
+          alert('Something went wrong', error);
+          break;
+      }
     }
   };
 
@@ -86,6 +96,7 @@ const SignInForm = () => {
         <div className="sign-in-buttons-container">
           <Button chidren="Sign In"></Button>
           <Button
+            type="button"
             onClick={signInWithGoogleRedirect}
             buttonType="google"
             chidren="Sign In With Google"
