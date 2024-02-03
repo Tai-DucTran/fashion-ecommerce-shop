@@ -2,13 +2,6 @@ import { createContext, useContext, useEffect, useState } from 'react';
 
 import ProductsData from '../../data/products.data.json';
 
-const product = {
-  id: '',
-  name: '',
-  imageUrl: '',
-  price: '',
-};
-
 export const ProductsContext = createContext({
   products: [],
 });
