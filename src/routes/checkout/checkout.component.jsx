@@ -15,6 +15,10 @@ const Checkout = () => {
           <CheckoutItem product={item}></CheckoutItem>
         ))}
       </div>
+      Icons by
+      <a target="_blank" rel="noreferrer" href="https://www.svgrepo.com/">
+        Svgrepo.com
+      </a>
     </div>
   );
 };

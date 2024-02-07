@@ -17,6 +17,18 @@ const removeCartItemHelper = (cartItems, productToRemove) => {
   return cartItems.filter(item => item.id !== productToRemove.id);
 };
 
+const minusItemQuantityByOneHelper = (cartItems, productToRemove) => {
+  if (productToRemove.quantity === 1) {
+    return removeCartItemHelper(cartItems, productToRemove);
+  }
+
+  return cartItems.map(cartItem =>
+    cartItem.id === productToRemove.id
+      ? { ...cartItem, quantity: cartItem.quantity - 1 }
+      : cartItem
+  );
+};
+
 export const CartContext = createContext({
   // for toggle
   isCartOpen: false,
@@ -40,6 +52,9 @@ export const CartProvider = ({ children }) => {
   const removeItemOutOfCart = productToRemove => {
     setCartItems(removeCartItemHelper(cartItems, productToRemove));
   };
+  const minusItemQuantityByOne = productToRemove => {
+    setCartItems(minusItemQuantityByOneHelper(cartItems, productToRemove));
+  };
 
   const [cartItemsCount, setCartItemsCount] = useState(0);
   useEffect(() => {
@@ -57,6 +72,7 @@ export const CartProvider = ({ children }) => {
     cartItems,
     cartItemsCount,
     removeItemOutOfCart,
+    minusItemQuantityByOne,
   };
   return <CartContext.Provider value={value}>{children}</CartContext.Provider>;
 };
