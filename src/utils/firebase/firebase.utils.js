@@ -10,9 +10,20 @@ import {
   onAuthStateChanged,
 } from 'firebase/auth';
 
-import { getFirestore, doc, getDoc, setDoc } from 'firebase/firestore';
+import {
+  getFirestore,
+  doc,
+  getDoc,
+  setDoc,
+  collection,
+  writeBatch,
+  query,
+} from 'firebase/firestore';
 
 import { firebaseConfig } from './const/firebase.config';
+
+const userCollection = 'users';
+const categoriesCollection = 'categories';
 
 const firebaseApp = initializeApp(firebaseConfig);
 
@@ -24,6 +35,23 @@ googleProvider.setCustomParameters({
 
 export const auth = getAuth();
 export const db = getFirestore();
+
+export const addCollectionAndDocuments = async (
+  collectionKey,
+  objectsToAdd
+) => {
+  const collectionRef = collection(db, collectionKey);
+  const batch = writeBatch(db);
+
+  // create set events:
+  objectsToAdd.forEach(object => {
+    const docRef = doc(collectionRef, object.title.toLowerCase());
+    batch.set(docRef, object);
+  });
+
+  await batch.commit();
+  console.log('done');
+};
 
 export const signInWithGooglePopup = () =>
   signInWithPopup(auth, googleProvider);
@@ -40,7 +68,7 @@ export const createUserDocFromAuth = async (userAuth, additionalInfo) => {
   // 1. Firestore database instance
   // 2. Collection
   // 3. Some identifier that tells it what it was (unique id)
-  const userDocRef = doc(db, 'users', userAuth.uid);
+  const userDocRef = doc(db, userCollection, userAuth.uid);
   console.log(userDocRef);
 
   // The snapshot allows us to check whether or not there is an instance
