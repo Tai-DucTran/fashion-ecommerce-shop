@@ -6,7 +6,11 @@ import { goToPageRouteHelper } from '../../routes/route.utils';
 import Button from '../button/button.component';
 import CartItem from '../cart-item/cart-item.component';
 
-import './cart-dropdown.styles.scss';
+import {
+  CartDropdownContainer,
+  EmptyMessage,
+  CartItems,
+} from './cart-dropdown.styles';
 
 const CartDropdown = () => {
   const { isCartOpen, setIsCartOpen, cartItems } = useContext(CartContext);
@@ -18,18 +22,18 @@ const CartDropdown = () => {
   };
 
   return (
-    <div className="cart-dropdown-container">
-      <div className="cart-items">
+    <CartDropdownContainer>
+      <CartItems>
         {cartItems.length > 0 ? (
           cartItems.map(item => (
             <CartItem key={item.id} cartItem={item}></CartItem>
           ))
         ) : (
-          <span className="empty-message">Your card is empty</span>
+          <EmptyMessage>Your card is empty</EmptyMessage>
         )}
-      </div>
+      </CartItems>
       <Button chidren="GO TO CHECKOUT" onClick={goToCheckoutHandler}></Button>
-    </div>
+    </CartDropdownContainer>
   );
 };
 
