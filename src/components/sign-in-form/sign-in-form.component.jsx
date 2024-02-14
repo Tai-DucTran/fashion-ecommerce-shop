@@ -6,7 +6,7 @@ import {
   signInAuthUserWithEmailAndPassword,
 } from '../../utils/firebase/firebase.utils';
 
-import Button from '../button/button.component';
+import Button, { BUTTON_TYPE_CLASSES } from '../button/button.component';
 import FormInput from '../form-input/form-input.component';
 
 import './sign-in-form.style.scss';
@@ -91,7 +91,7 @@ const SignInForm = () => {
           <Button
             type="button"
             onClick={signInWithGoogleRedirect}
-            buttonType="google"
+            buttonType={BUTTON_TYPE_CLASSES.google}
             chidren="Sign In With Google"
           ></Button>
         </div>
