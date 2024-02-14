@@ -1,4 +1,9 @@
 import styled from 'styled-components';
+import {
+  BasedButton,
+  GoogleSignInButton,
+  InvertedButton,
+} from '../button/button.styles';
 
 export const ProductCartContainer = styled.div`
   width: 100%;
@@ -15,7 +20,9 @@ export const ProductCartContainer = styled.div`
     margin-bottom: 5px;
   }
 
-  button {
+  ${BasedButton},
+  ${GoogleSignInButton},
+  ${InvertedButton} {
     width: 80%;
     opacity: 0.7;
     position: absolute;
