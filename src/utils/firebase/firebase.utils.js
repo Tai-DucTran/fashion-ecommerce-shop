@@ -21,7 +21,16 @@ import {
   getDocs,
 } from 'firebase/firestore';
 
-import { firebaseConfig } from './const/firebase.config';
+// import { firebaseConfig } from './const/firebase.config';
+
+const firebaseConfig = {
+  apiKey: process.env.REACT_APP_FIREBASE_API_KEY,
+  messagingSenderId: process.env.REACT_APP_FIREBASE_MESSAGING_SENDER_ID,
+  appId: process.env.REACT_APP_FIREBASE_APP_ID,
+  authDomain: 'fashion-ecommerce-shop.firebaseapp.com',
+  projectId: 'fashion-ecommerce-shop',
+  storageBucket: 'fashion-ecommerce-shop.appspot.com',
+};
 
 const userCollection = 'users';
 const categoriesCollection = 'categories';
