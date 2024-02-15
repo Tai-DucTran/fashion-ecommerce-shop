@@ -1,7 +1,6 @@
 import { useContext } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { CartContext } from '../../contexts/cart/cart.context';
-import { goToPageRouteHelper } from '../../routes/route.utils';
 
 import Button from '../button/button.component';
 import CartItem from '../cart-item/cart-item.component';
@@ -18,7 +17,7 @@ const CartDropdown = () => {
   const navigate = useNavigate();
   const goToCheckoutHandler = () => {
     setIsCartOpen(!isCartOpen);
-    goToPageRouteHelper(navigate, '/checkout');
+    navigate('/checkout');
   };
 
   return (
