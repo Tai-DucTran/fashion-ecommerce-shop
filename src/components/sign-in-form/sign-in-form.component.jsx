@@ -20,7 +20,6 @@ const SignInForm = () => {
   useEffect(() => {
     const verifyRedirectResult = async () => {
       const response = await getRedirectResult(auth);
-      console.log('redirect login result', response);
     };
     verifyRedirectResult();
   }, []);
@@ -34,7 +33,6 @@ const SignInForm = () => {
 
   const handleSubmit = async event => {
     event.preventDefault();
-    console.log(event.target);
 
     try {
       await signInAuthUserWithEmailAndPassword(email, password);
@@ -55,12 +53,9 @@ const SignInForm = () => {
   };
 
   const handleChange = event => {
-    console.log(event.target);
     const { name, value } = event.target;
 
     setFormFields({ ...formFields, [name]: value });
-    console.log(name);
-    console.log(value);
   };
 
   return (
