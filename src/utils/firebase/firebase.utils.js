@@ -21,8 +21,6 @@ import {
   getDocs,
 } from 'firebase/firestore';
 
-// import { firebaseConfig } from './const/firebase.config';
-
 const firebaseConfig = {
   apiKey: process.env.REACT_APP_FIREBASE_API_KEY,
   messagingSenderId: process.env.REACT_APP_FIREBASE_MESSAGING_SENDER_ID,
@@ -33,8 +31,8 @@ const firebaseConfig = {
 };
 
 const userCollection = 'users';
-const categoriesCollection = 'categories';
 
+// eslint-disable-next-line no-unused-vars
 const firebaseApp = initializeApp(firebaseConfig);
 
 const googleProvider = new GoogleAuthProvider();
@@ -59,7 +57,6 @@ export const addCollectionAndDocuments = async (
   });
 
   await batch.commit();
-  console.log('done');
 };
 
 export const getCategoriesAndDocuments = async () => {
@@ -92,15 +89,10 @@ export const createUserDocFromAuth = async (userAuth, additionalInfo) => {
   // 2. Collection
   // 3. Some identifier that tells it what it was (unique id)
   const userDocRef = doc(db, userCollection, userAuth.uid);
-  console.log(userDocRef);
 
   // The snapshot allows us to check whether or not there is an instance
   // of it that exist inside our database or not
   const userSnapshot = await getDoc(userDocRef);
-  console.log(userSnapshot);
-
-  // Will check the data - snapshot is already exist
-  console.log(userSnapshot.exists());
 
   if (!userSnapshot.exists()) {
     const { displayName, email } = userAuth;
