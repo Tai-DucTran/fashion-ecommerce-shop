@@ -1,10 +1,11 @@
-# Create Candle Ecommerce Shop
+# Create Fashion Ecommerce Shop
 
-description
+Description
 
-> This project I use ReactJS, Firebase, Redux, GraphQL, Stripe API to create an ecommerce website selling scented candles.
+> This project I use ReactJS, Firebase, Redux, GraphQL, Stripe API to create an ecommerce website.
+> You can view a demo app via this link: https://fashionshop-bytaitran.netlify.app/ 
 
-\*\*After done this project I will:
-
-- Creating Mobile Product using Flutter/Dart, Firebase.
-- Adding chat bot feature
+This project is one of the big eco-applications that I plan to build after it:
+- Mobile Product using Flutter/Dart, Firebase.
+- Client Web-app version
+- Chat integration
