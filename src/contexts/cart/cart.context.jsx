@@ -64,7 +64,7 @@ const cartReducer = (state, action) => {
     case CART_ACTION_TYPES.SET_IS_CART_OPEN:
       return {
         ...state,
-        isCartOpen: payload.isCartOpen,
+        isCartOpen: payload,
       };
     case CART_ACTION_TYPES.UPDATE_CART_ITEM:
       return {
@@ -80,12 +80,10 @@ export const CartProvider = ({ children }) => {
   const [{ isCartOpen, cartItems, cartItemsCount, cartTotal }, dispatch] =
     useReducer(cartReducer, INITIAL_STATE);
 
-  const setIsCartOpen = isCartOpen =>
+  const setIsCartOpen = boolean =>
     dispatch({
       type: CART_ACTION_TYPES.SET_IS_CART_OPEN,
-      payload: {
-        isCartOpen: !isCartOpen,
-      },
+      payload: boolean,
     });
 
   const updateCartItemsReducer = newCartItems => {

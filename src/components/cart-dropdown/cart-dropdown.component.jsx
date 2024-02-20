@@ -16,7 +16,7 @@ const CartDropdown = () => {
 
   const navigate = useNavigate();
   const goToCheckoutHandler = () => {
-    setIsCartOpen(isCartOpen);
+    setIsCartOpen(!isCartOpen);
     navigate('/checkout');
   };
 
