@@ -5,6 +5,7 @@ export const BackgroundImage = styled.div`
   height: 100%;
   background-size: cover;
   background-position: center;
+  border-radius: 16px;
   background-image: ${({ imageurl }) => `url(${imageurl})`};
 `;
 
@@ -41,7 +42,6 @@ export const DirectoryItemContainer = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
-  border: 1px solid black;
   margin: 0 7.5px 15px;
   overflow: hidden;
 
