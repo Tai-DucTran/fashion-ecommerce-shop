@@ -6,7 +6,7 @@ import {
   onAuthStateChangedListener,
   createUserDocFromAuth,
 } from './utils/firebase/firebase.utils';
-import { setCurrentUser } from './store/user/user-actions';
+import { setCurrentUser } from './store/user/user.actions';
 
 import Home from './routes/home/home.component';
 import Shop from './routes/shop/shop.component';
