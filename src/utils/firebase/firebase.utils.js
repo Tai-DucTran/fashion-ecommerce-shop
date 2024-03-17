@@ -20,7 +20,6 @@ import {
   query,
   getDocs,
 } from 'firebase/firestore';
-import { resolve } from 'styled-jsx/css';
 
 const firebaseConfig = {
   apiKey: process.env.REACT_APP_FIREBASE_API_KEY,
@@ -65,13 +64,7 @@ export const getCategoriesAndDocuments = async () => {
   const q = query(collectionRef);
 
   const querySnapshot = await getDocs(q);
-  const categoryMap = querySnapshot.docs.reduce((acc, docSnapshot) => {
-    const { title, items } = docSnapshot.data();
-    acc[title.toLowerCase()] = items;
-    return acc;
-  }, {});
-
-  return categoryMap;
+  return querySnapshot.docs.map((dataSnapshot) => dataSnapshot.data());
 };
 
 export const signInWithGooglePopup = () =>
