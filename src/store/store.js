@@ -9,7 +9,7 @@ import { rootReducer } from './root-reducer';
 const persistConfig = {
   key: 'root',
   storage,
-  blacklist: ['user', 'categories'],
+  whitelist: ['cart'],
 };
 const isNotProductionEnv = process.env.NODE_ENV !== 'production';
 

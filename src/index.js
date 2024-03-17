@@ -5,7 +5,6 @@ import { Provider } from 'react-redux';
 import { PersistGate } from 'redux-persist/integration/react';
 
 import App from './App';
-import { CartProvider } from './contexts/cart/cart.context';
 import { store, persistedStore } from './store/store';
 
 import './index.scss';
@@ -18,9 +17,7 @@ root.render(
     <Provider store={store}>
       <PersistGate persistor={persistedStore}>
         <BrowserRouter>
-          <CartProvider>
-            <App />
-          </CartProvider>
+          <App />
         </BrowserRouter>
       </PersistGate>
     </Provider>
