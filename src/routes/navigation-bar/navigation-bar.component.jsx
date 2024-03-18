@@ -13,8 +13,8 @@ import { selectIsCartOpen } from '../../store/cart/cart.selectors';
 import { setIsCartOpen } from '../../store/cart/cart.actions';
 
 import CartIcon from '../../components/cart-icon/cart-icon.component';
-import CartDropdown from '../../components/cart-dropdown/cart-dropdown.component';
-import ProfileCardContainer from '../profile-card/profile-card.component';
+import CartDropdownModal from '../../components/modals/cart-dropdown-modal/cart-dropdown-modal.component';
+import ProfileDropdownModal from '../../components/modals/profile-dropdown-modal/profile-dropdown-modal.component';
 
 import {
   NavigationBarContainer,
@@ -30,9 +30,6 @@ const NavigationBar = () => {
   const isProfileCardOpen = useSelector(selectIsProfileCardOpen);
 
   const onProfileClickHandler = () => {
-    if (isCartOpen) {
-      dispatch(setIsCartOpen(!isCartOpen));
-    }
     dispatch(setIsProfileCartOpen(!isProfileCardOpen));
   };
 
@@ -52,10 +49,10 @@ const NavigationBar = () => {
           ) : (
             <NavLink to="/auth">SIGN IN</NavLink>
           )}
-          {isProfileCardOpen && <ProfileCardContainer />}
+          {isProfileCardOpen && <ProfileDropdownModal />}
           <CartIcon />
         </NavLinks>
-        {isCartOpen && <CartDropdown />}
+        {isCartOpen && <CartDropdownModal />}
       </NavigationBarContainer>
       <Outlet />
     </Fragment>

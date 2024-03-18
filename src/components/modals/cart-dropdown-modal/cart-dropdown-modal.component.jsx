@@ -1,14 +1,15 @@
+import { useRef, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 
 import {
   selectIsCartOpen,
   selectCartItems,
-} from '../../store/cart/cart.selectors';
-import { setIsCartOpen } from '../../store/cart/cart.actions';
+} from '../../../store/cart/cart.selectors';
+import { setIsCartOpen } from '../../../store/cart/cart.actions';
 
-import Button from '../button/button.component';
-import CartItem from '../cart-item/cart-item.component';
+import Button from '../../button/button.component';
+import CartItem from '../../cart-item/cart-item.component';
 
 import {
   CartDropdownContainer,
@@ -16,7 +17,7 @@ import {
   CartItems,
 } from './cart-dropdown.styles';
 
-const CartDropdown = () => {
+const CartDropdownModal = () => {
   const dispatch = useDispatch();
   const isCartOpen = useSelector(selectIsCartOpen);
   const cartItems = useSelector(selectCartItems);
@@ -27,8 +28,23 @@ const CartDropdown = () => {
     navigate('/checkout');
   };
 
-  return (
-    <CartDropdownContainer>
+  const modalRef = useRef(null);
+
+  const handleClickOutside = (event) => {
+    if (modalRef.current && !modalRef.current.contains(event.target)) {
+      dispatch(setIsCartOpen(false));
+    }
+  };
+
+  useEffect(() => {
+    document.addEventListener('mousedown', handleClickOutside);
+    return () => {
+      document.removeEventListener('mousedown', handleClickOutside);
+    };
+  }, []);
+
+  return isCartOpen ? (
+    <CartDropdownContainer ref={modalRef}>
       <CartItems>
         {cartItems.length > 0 ? (
           cartItems.map((item) => (
@@ -40,7 +56,7 @@ const CartDropdown = () => {
       </CartItems>
       <Button chidren="GO TO CHECKOUT" onClick={goToCheckoutHandler}></Button>
     </CartDropdownContainer>
-  );
+  ) : null;
 };
 
-export default CartDropdown;
+export default CartDropdownModal;
